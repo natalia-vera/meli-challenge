@@ -1,0 +1,43 @@
+<div class="loading">
+    <img 
+         *ngIf="loading"
+         src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+</div>
+
+<!-- si no está cargando y no encontro producto-->
+<div *ngIf="!loading && noEncontrado">
+    <img class="img-fluid img-no-search" src="assets/imgs/err_search.jpg">
+</div>
+
+<!-- si no está cargando y encontró el producto-->
+<div *ngIf="!loading && !noEncontrado">
+    <div class="container-breadcrumb">
+        <div *ngFor="let cat of respuestaDetalle.item.categories; let last = last">
+            {{cat}} {{last ? '' : '>'}} 
+        </div>
+    </div>
+
+    <div class="container-result"> 
+
+        <div class="row">
+            <div class="col col-lg-8"><img [src]=respuestaDetalle.item.picture class="img-fluid img-description"> </div>
+            <div class="col col-lg-4 text-child">
+                <p class="text-sold">{{respuestaDetalle.item.condition}} - {{respuestaDetalle.item.sold_quantity}} vendidos</p>
+                <h3 class="text-title">{{respuestaDetalle.item.title}}</h3>
+                <h1 class="integer-price">$ {{respuestaDetalle.item.price.amount}}
+                    <span class="decimals-price">{{respuestaDetalle.item.price.decimals ? respuestaDetalle.item.price.decimals: '00'}}</span> 
+                </h1>
+                <br>
+                <input type="button" class="button-detail" value="Comprar">               
+            </div>    
+        </div>
+
+        <div class="row">
+            <div class="col col-lg-8">
+            <p class="text-title-description">Descripción del producto</p>
+            <p class="text-description">{{respuestaDetalle.item.description}}</p>
+        </div>
+        </div>
+    </div>
+    <br><br>
+</div>

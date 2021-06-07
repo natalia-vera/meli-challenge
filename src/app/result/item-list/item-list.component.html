@@ -1,0 +1,12 @@
+<div class="row item-selection" (click)=verDetalle()>
+
+    <div class="col col-lg-2">
+        <img [src]=item.picture class="img-fluid img-list">
+    </div>
+    <div class="col col-lg-10">
+        <div class="row title-list">${{item.price.amount}}</div>
+        <div class="row little-title-list">{{item.address}}&nbsp;</div>
+        <div class="row text-list">{{item.title}}</div>
+    </div>
+    
+</div>

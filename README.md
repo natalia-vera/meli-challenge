@@ -1,27 +1,41 @@
-# Challenge
+#CHALLENGE FRONTEND MELI:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.2.
+##SÍNTESIS DEL ENUNCIADO:
+Construir las vistas relacionadas a la búsqueda, listado resultante(sólo 4 productos) y detalle del producto seleccionado. 
+Generar los endpoints /api/items?q=:query y /api/items/id:id  los cuales consultan a servicios facilitados por Meli.
 
-## Development server
+##CARACTERÍSTICAS DE CALIDAD CONSIDERADOS:
+A través del diseño y stack tecnológico implementado, la aplicación busca abarcar los conceptos de usabilidad, SEO, performance y escalabilidad. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+##STACK TECNOLÓGICO UTILIZADO:
+Cliente:
 
-## Code scaffolding
+* Angular 12.0.2
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* Bootstrap 5
 
-## Build
+Servidor:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+* Node 14.17.0
 
-## Running unit tests
+* Express
+	
+##MODELO DE NEGOCIO:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![](doc/model.png)
 
-## Running end-to-end tests
+RespuestaSearch: es la respuesta del servicio de búsqueda del producto (getSearch).
+ItemSearch: contiene la información particular del producto.
+PriceSearch: contiene la información del precio del producto.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+RespuestaDetalleSearch: es la respuesta del servicio del detalle del producto(getDetail)
+ItemDetalleSearch: contiene la información de las características particulares del producto.
+PriceSearch: contiene la información del precio del producto.
 
-## Further help
+##SERVICIOS:
+Se implementan dos servicios Rest de tipo get.
+/api/items?q=:query
+Devuelve el listado de productos limitando a una respuesta de 4 items.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+/api/items/:id
+Devuelve el detalle de un producto a partir de un id.
