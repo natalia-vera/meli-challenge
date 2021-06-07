@@ -1,13 +1,16 @@
-#CHALLENGE FRONTEND MELI:
+# CHALLENGE FRONTEND MELI:
 
-##SÍNTESIS DEL ENUNCIADO:
+## SÍNTESIS DEL ENUNCIADO:
+
 Construir las vistas relacionadas a la búsqueda, listado resultante(sólo 4 productos) y detalle del producto seleccionado. 
 Generar los endpoints /api/items?q=:query y /api/items/id:id  los cuales consultan a servicios facilitados por Meli.
 
-##CARACTERÍSTICAS DE CALIDAD CONSIDERADOS:
+## CARACTERÍSTICAS DE CALIDAD CONSIDERADOS:
+
 A través del diseño y stack tecnológico implementado, la aplicación busca abarcar los conceptos de usabilidad, SEO, performance y escalabilidad. 
 
-##STACK TECNOLÓGICO UTILIZADO:
+## STACK TECNOLÓGICO UTILIZADO:
+
 Cliente:
 
 * Angular 12.0.2
@@ -20,7 +23,7 @@ Servidor:
 
 * Express
 	
-##MODELO DE NEGOCIO:
+## MODELO DE NEGOCIO:
 
 ![](doc/model.png)
 
@@ -32,10 +35,12 @@ RespuestaDetalleSearch: es la respuesta del servicio del detalle del producto(ge
 ItemDetalleSearch: contiene la información de las características particulares del producto.
 PriceSearch: contiene la información del precio del producto.
 
-##SERVICIOS:
+## SERVICIOS:
+
 Se implementan dos servicios Rest de tipo get.
-/api/items?q=:query
+
+* /api/items?q=:query
 Devuelve el listado de productos limitando a una respuesta de 4 items.
 
-/api/items/:id
+* /api/items/:id
 Devuelve el detalle de un producto a partir de un id.
